@@ -10,9 +10,9 @@ Windows: ```C:\windows\System32\drivers\etc\hosts```
 
 Linux: ```/etc/hosts```
 
-Sample file:
+Sample entry for ```hosts``` file:
 ```
-dvws.local         192.168.100.199
+192.168.100.199         dvws.local
 ```
 
 The application requires the following:

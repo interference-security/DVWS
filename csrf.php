@@ -47,7 +47,7 @@ EOT;
 $page_script= <<<EOT
 $(document).ready(function(){
 //Open a WS server connection
-var wsUri = "ws://192.168.100.199:8080/authenticate-user-prepared-session";
+var wsUri = "ws://dvws.local:8080/authenticate-user-prepared-session";
 websocket = new WebSocket(wsUri);
 
 //Connected to WS server
@@ -87,7 +87,7 @@ $('#send').click(function()
 });
 
 //Open a WS server connection
-var wsUri2 = "ws://192.168.100.199:8080/change-password";
+var wsUri2 = "ws://dvws.local:8080/change-password";
 websocket2 = new WebSocket(wsUri2);
 
 //Connected to WS server

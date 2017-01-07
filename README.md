@@ -2,6 +2,19 @@
 Damn Vulnerable Web Sockets (DVWS) is a vulnerable web application which works on web sockets for client-server communication. The flow of the application is similar to [DVWA](https://github.com/ethicalhack3r/DVWA). You will find more vulnerabilities than the ones listed in the application.
 
 ## Requirements
+In the ```hosts``` file of your attacker machine create an entry for ```dvws.local``` to point at the IP address hosting the DVWS application.
+
+Location of ```hosts``` file:
+
+Windows: ```C:\windows\System32\drivers\etc\hosts```
+
+Linux: ```/etc/hosts```
+
+Sample file:
+```
+dvws.local         192.168.100.199
+```
+
 The application requires the following:
 
 Apache + PHP + MySQL

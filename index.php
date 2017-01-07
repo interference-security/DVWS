@@ -6,7 +6,13 @@ $page_data = <<<EOT
 <div class="row">
     <div class="col-md-12">
         <p>
-            Damn Vulnerable Web Sockets (DVWS) is a vulnerable web application which works on web sockets for client-server communication. The flow of the application is similar to <a href="https://github.com/ethicalhack3r/DVWA" target="_blank">DVWA</a>.<br>
+            Damn Vulnerable Web Sockets (DVWS) is a vulnerable web application which works on web sockets for client-server communication. The flow of the application is similar to <a href="https://github.com/ethicalhack3r/DVWA" target="_blank">DVWA</a>.<br><br>
+            In the "hosts" file of your attacker machine create an entry for "dvws.local" to point at the IP address hosting the DVWS application.
+Location of the "hosts" file:<br>
+Windows: C:\windows\System32\drivers\etc\hosts<br>
+Linux: /etc/hosts<br>
+Sample entry for hosts file:<br>
+192.168.100.199&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dvws.local<br><br>
             The application requires the following:
             <ol>
                 <li>Apache + PHP + MySQL</li>

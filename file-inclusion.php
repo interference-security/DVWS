@@ -30,7 +30,7 @@ EOT;
 $page_script= <<<EOT
 $(document).ready(function(){
 //Open a WS server connection
-var wsUri = "ws://192.168.100.199:8080/file-inclusion";
+var wsUri = "ws://dvws.local:8080/file-inclusion";
 websocket = new WebSocket(wsUri);
 
 //Connected to WS server

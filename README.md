@@ -35,5 +35,4 @@ On the host running this application, run the following command from DVWS direct
 DVWS has been developed with limited knowledge of Web Sockets. Feel free to contribute and enhance this project.
 
 ## Screenshot
-![image](https://cloud.githubusercontent.com/assets/5358495/21744585/a23a1968-d53e-11e6-9ce4-4dc85aa194b1.png)
-
+![image](https://cloud.githubusercontent.com/assets/5358495/21744843/e8e70fc4-d543-11e6-9c97-763f21b09d12.png)

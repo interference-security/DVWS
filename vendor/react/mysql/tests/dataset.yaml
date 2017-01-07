@@ -1,0 +1,14 @@
+book:
+  -
+    id: 1
+    name: "Advanced PHP Progroming"
+    isbn: "aaa"
+    author: "balabala"
+    created: 123
+  -
+    id: 2
+    name: "Advanved MySQL ..."
+    isbn: "bbb"
+    author: "foobar"
+    created: 234
+

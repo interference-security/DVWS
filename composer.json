@@ -1,0 +1,6 @@
+{
+    "require": {
+        "cboden/ratchet": "^0.3.5",
+        "react/mysql": "^0.2.0"
+    }
+}

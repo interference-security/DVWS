@@ -29,7 +29,7 @@ EOT;
 $page_script= <<<EOT
 $(document).ready(function(){
 //Open a WS server connection
-var wsUri = "ws://192.168.100.199:8080/post-comments";
+var wsUri = "ws://dvws.local:8080/post-comments";
 websocket = new WebSocket(wsUri);
 
 //Connected to WS server
@@ -69,7 +69,7 @@ $('#send').click(function()
 
 //Show comments
 //Open a WS server connection
-var wsUri2 = "ws://192.168.100.199:8080/show-comments";
+var wsUri2 = "ws://dvws.local:8080/show-comments";
 websocket2 = new WebSocket(wsUri2);
 
 //Connected to WS server

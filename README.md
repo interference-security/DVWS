@@ -25,6 +25,8 @@ PHP with MySQLi support
 
 [ReactPHP-MySQL](https://github.com/bixuehujin/reactphp-mysql/)
 
+```Note: Ratchet and ReactPHP-MySQL are packaged inside DVWS. Separate installation might not be required.```
+
 ## Setting up DVWS
 Set the MySQL hostname, username, password and an existing database name in the ```includes/connect-db.php``` file then go to Setup to finish setting up DVWS.
 

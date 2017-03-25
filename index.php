@@ -1,12 +1,12 @@
 <?php
 $page_data = <<<EOT
 <div class="page-header">
-    <h1>Damn Vulnerable Web Sockets (DVWS)</h1>
+    <h1>OWASP Damn Vulnerable Web Sockets (DVWS)</h1>
 </div>
 <div class="row">
     <div class="col-md-12">
         <p>
-            Damn Vulnerable Web Sockets (DVWS) is a vulnerable web application which works on web sockets for client-server communication. The flow of the application is similar to <a href="https://github.com/ethicalhack3r/DVWA" target="_blank">DVWA</a>.<br><br>
+            OWASP Damn Vulnerable Web Sockets (DVWS) is a vulnerable web application which works on web sockets for client-server communication. The flow of the application is similar to <a href="https://github.com/ethicalhack3r/DVWA" target="_blank">DVWA</a>.<br><br>
             In the "hosts" file of your attacker machine create an entry for "dvws.local" to point at the IP address hosting the DVWS application.
 Location of the "hosts" file:<br>
 Windows: C:\windows\System32\drivers\etc\hosts<br>
@@ -25,7 +25,8 @@ Sample entry for hosts file:<br>
             This open-source project is hosted here <a href="https://github.com/interference-security/DVWS/" target="_blank">https://github.com/interference-security/DVWS/</a>.<br><br>
             DVWS created by <a href="https://twitter.com/xploresec">@xploresec</a><br><br>
             <a href="https://twitter.com/xploresec"><img src="img/twitter.png" style="width:48px; height:48px;"></a> &nbsp;&nbsp;&nbsp; 
-            <a href="https://github.com/interference-security/DVWS/"><img src="img/github.png" style="width:48px; height:48px;"></a>
+            <a href="https://github.com/interference-security/DVWS/"><img src="img/github.png" style="width:48px; height:48px;"></a> &nbsp;&nbsp;&nbsp; 
+            <a href="https://www.owasp.org/index.php/OWASP_Damn_Vulnerable_Web_Sockets_(DVWS)"><img src="img/owasp.png" style="width:48px; height:48px;"></a>
 
         </p>
     </div>

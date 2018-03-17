@@ -21,7 +21,7 @@ class CommandExecution implements MessageComponentInterface
 	public function onMessage(ConnectionInterface $from, $msg)
 	{
 		echo "Received: command execution : " . $msg . "\n";
-		$reply_data = shell_exec('ping -c 3 '.$msg);
+		$reply_data = shell_exec('ping '.$msg);
 		$from->send($reply_data);
 	}
 

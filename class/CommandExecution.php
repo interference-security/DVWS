@@ -21,7 +21,15 @@ class CommandExecution implements MessageComponentInterface
 	public function onMessage(ConnectionInterface $from, $msg)
 	{
 		echo "Received: command execution : " . $msg . "\n";
-		$reply_data = shell_exec('ping -c 3 '.$msg);
+		$reply_data = "Nothing";
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
+		{
+			$reply_data = shell_exec('ping -n 3 '.$msg);
+		}
+		else
+		{
+			$reply_data = shell_exec('ping -c 3 '.$msg);
+		}
 		$from->send($reply_data);
 	}
 

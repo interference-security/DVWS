@@ -1,0 +1,6 @@
+2021-01-23
+- Changelog file added
+- Changelog to be maintained going forward
+
+2017-01-17
+- First release

@@ -46,5 +46,5 @@ Example: ```php ws-socket.php --heartbeat-interval 10```
 DVWS has been developed with limited knowledge of Web Sockets. Feel free to contribute and enhance this project.
 
 ## Screenshot
-![image](https://user-images.githubusercontent.com/5358495/119394584-57471e80-bca0-11eb-91e3-e8c1d2bf1505.png)
+![image](https://user-images.githubusercontent.com/5358495/119394820-a725e580-bca0-11eb-9cc7-d31fc30572ce.png)
 

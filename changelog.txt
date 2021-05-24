@@ -1,3 +1,10 @@
+2021-05-24
+- Added heartbeat functionality in "ws-socket.php" file
+- Updated heartbeat command in "index.php" file
+- Updated formatting in "index.php" file
+- Removed "vendor" folder and "composer.lock" file
+- Updated README.md file
+
 2021-01-23
 - Changelog file added
 - Changelog to be maintained going forward

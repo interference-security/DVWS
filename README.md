@@ -27,13 +27,20 @@ PHP with MySQLi support
 
 [ReactPHP-MySQL](https://github.com/bixuehujin/reactphp-mysql/)
 
-```Note: Ratchet and ReactPHP-MySQL are packaged inside DVWS. Separate installation is not required.```
+Install "Ratchet" and "ReactPHP-MySQL" using composer:
+```
+git clone https://github.com/interference-security/DVWS
+cd DVWS
+composer install
+```
 
 ## Setting up DVWS
 Set the MySQL hostname, username, password and an existing database name in the ```includes/connect-db.php``` file then go to Setup to finish setting up DVWS.
 
 ## Running DVWS
-On the host running this application, run the following command from DVWS directory: ```php ws-socket.php```
+On the host running this application, run the following command from DVWS directory: ```php ws-socket.php --heartbeat-interval <seconds>```
+
+Example: ```php ws-socket.php --heartbeat-interval 10```
 
 ## Important Note
 DVWS has been developed with limited knowledge of Web Sockets. Feel free to contribute and enhance this project.

@@ -34,6 +34,27 @@ cd DVWS
 composer install
 ```
 
+## Docker Installation
+```bash
+docker build -t dvws .
+
+# For connecting with existing database
+docker run -it \
+  --name DVWS \
+  -p 8080:8080 -p 8888:8888 \
+  -e "DB_HOST=db" \
+  -e "DB_USER=dvws" \
+  -e "DB_PASSWORD=DVWS" \
+  -e "DB_DATABASE=dvws" \
+  --restart always \
+  dvws
+
+# or use docker-compose
+docker-compose up
+```
+
+Visit http://localhost:8080/setup.php for getting started
+
 ## Setting up DVWS
 Set the MySQL hostname, username, password and an existing database name in the ```includes/connect-db.php``` file then go to Setup to finish setting up DVWS.
 

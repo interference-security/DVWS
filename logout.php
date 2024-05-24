@@ -2,9 +2,14 @@
 // Initialize the session.
 // If you are using session_name("something"), don't forget it now!
 session_start();
-$_SESSSION["username"] = "";
-$_SESSSION["firstname"] = "";
-$_SESSSION["lastname"] = "";
+
+// Remove session json file
+$session_file = session_save_path()."/json/sess_".session_id();
+unlink($session_file);
+
+unset($_SESSION["username"]);
+unset($_SESSION["firstname"]);
+unset($_SESSION["lastname"]);
 
 // Unset all of the session variables.
 $_SESSION = array();
@@ -22,5 +27,5 @@ if (ini_get("session.use_cookies")) {
 // Finally, destroy the session.
 session_destroy();
 //die("Logged out");
-header("Location: csrf.php");
-?>
+header("Location:csrf.php");
+exit();

@@ -11,18 +11,17 @@ class ChangePassword implements MessageComponentInterface
 		$this->clients = new \SplObjectStorage;
 	}
 
-	public function change_password($arr_data, $from)
+	public function change_password($arr_data, $from, $session_data)
 	{
 		$reply_data = "";
-		session_start();
-		if(isset($_SESSION['username']))
+		if(isset($session_data['username']))
 		{
 			try
 			{
 				require("includes/connect-db.php");
 				try
 				{
-					$sql_query = "UPDATE users SET password='".$arr_data['npass']."' WHERE username='".$_SESSION['username']."'";
+					$sql_query = "UPDATE users SET password='".$arr_data['npass']."' WHERE username='".$session_data['username']."'";
 					echo "SQL query: $sql_query\n";
 					$result = mysqli_query($con, $sql_query);
 					if($result)
@@ -66,9 +65,26 @@ class ChangePassword implements MessageComponentInterface
 	public function onMessage(ConnectionInterface $from, $msg)
 	{
 		echo "Received: change-password : " . $msg . "\n";
+        //get cookies from httpRequest
+        $cookiesRaw = $from->httpRequest->getHeader('Cookie');
+        //deserialize cookies
+        $cookies = array();
+        foreach($cookiesRaw as $itm) {
+            list($key, $val) = explode('=', $itm, 2);
+            $cookies[$key] = $val;
+        }
+        //get PHPSESSID
+        $session_id = $cookies['PHPSESSID'];
+
+        $session_file = session_save_path()."/json/sess_".$session_id;
+        if(!file_exists($session_file)) // The session doesn't exist
+            return ;
+        $contents = file_get_contents($session_file);
+        //deserialize session_data
+        $session_data = json_decode($contents, true);
 		$arr_data = json_decode($msg,true);
 		$reply_data = "";
-		$this->change_password($arr_data, $from);
+		$this->change_password($arr_data, $from, $session_data);
 	}
 
 	public function onClose(ConnectionInterface $conn)

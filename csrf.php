@@ -1,5 +1,21 @@
 <?php
 session_start();
+$session_directory = session_save_path()."/json";
+if (!file_exists($session_directory)) {
+    mkdir($session_directory, 0777, true);
+}
+$session_file = $session_directory."/sess_".session_id();
+if(file_exists($session_file)){
+    $contents = file_get_contents($session_file);
+    $session_data = json_decode($contents,true);
+    $_SESSION["username"] = $session_data["username"];
+    $_SESSION["firstname"] = $session_data["firstname"];
+    $_SESSION["lastname"] = $session_data["lastname"];
+}
+else{
+    $contents = json_encode($_SESSION);
+    file_put_contents($session_file, $contents);
+}
 $page_data = <<<EOT
 <div class="page-header">
     <h1>Change Password</h1>

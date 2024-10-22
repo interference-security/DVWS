@@ -1,6 +1,7 @@
 {
     "require": {
         "cboden/ratchet": "*",
-        "react/mysql": "*"
+        "react/mysql": "*",
+        "ext-json": "*"
     }
 }

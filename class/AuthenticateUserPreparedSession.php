@@ -10,7 +10,7 @@ class AuthenticateUserPreparedSession implements MessageComponentInterface
 		$this->clients = new \SplObjectStorage;
 	}
 
-	public function sql_authenticate_user($arr_data,$from)
+	public function sql_authenticate_user($arr_data,$from, $session_id, $session_data)
 	{
 		$reply_data = "";
 		try
@@ -30,10 +30,12 @@ class AuthenticateUserPreparedSession implements MessageComponentInterface
 					if (mysqli_stmt_fetch($stmt))
 					{
 						$reply_data = "<div class='alert alert-success'>Welcome to your account. How are you $firstname_db $lastname_db? <a href='logout.php' class='btn btn-danger btn-md'>Logout</a></div>";
-						session_start();
-						$_SESSION["username"] = $username_db;
-						$_SESSION["firstname"] = $firstname_db;
-						$_SESSION["lastname"] = $lastname_db;
+                        $session_data["username"] = $username_db;
+                        $session_data["firstname"] = $firstname_db;
+                        $session_data["lastname"] = $lastname_db;
+                        $contents = json_encode($session_data);
+                        $session_file = session_save_path()."/json/sess_".$session_id;
+                        file_put_contents($session_file, $contents);
 					}
 					else
 					{
@@ -71,9 +73,26 @@ class AuthenticateUserPreparedSession implements MessageComponentInterface
 	public function onMessage(ConnectionInterface $from, $msg)
 	{
 		echo "Received: authenticate-user-prepared-session : $msg \n";
+        //get cookies from httpRequest
+        $cookiesRaw = $from->httpRequest->getHeader('Cookie');
+        //deserialize cookies
+        $cookies = array();
+        foreach($cookiesRaw as $itm) {
+            list($key, $val) = explode('=', $itm, 2);
+            $cookies[$key] = $val;
+        }
+        //get PHPSESSID
+        $session_id = $cookies['PHPSESSID'];
+
+        $session_file = session_save_path()."/json/sess_".$session_id;
+        if(!file_exists($session_file)) // The session doesn't exist
+            return ;
+        $contents = file_get_contents($session_file);
+        //deserialize session_data
+        $session_data = json_decode($contents, true);
 		$reply_data = "";
 		$arr_data = json_decode($msg,true);
-		$this->sql_authenticate_user($arr_data, $from);
+        $this->sql_authenticate_user($arr_data, $from, $session_id, $session_data);
 	}
 
 	public function onClose(ConnectionInterface $conn)

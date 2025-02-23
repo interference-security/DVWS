@@ -2,6 +2,7 @@
     "require": {
         "cboden/ratchet": "*",
         "react/mysql": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "twig/twig": "^3.20"
     }
 }

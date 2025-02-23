@@ -11,7 +11,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-FROM php:alpine
+FROM php:8.1-alpine
 
 # Source files
 WORKDIR /opt/DVWS

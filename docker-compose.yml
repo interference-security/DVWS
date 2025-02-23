@@ -1,12 +1,11 @@
-version: "3"
 services:
   web:
     container_name: DVWS_WEB
     restart: always
     build: .
     ports:
-      - 8080:8080 # Websocket
-      - 8888:8888 # Frontend
+      - 8080:8080   # Websocket
+      - 8888:8888   # Frontend
     environment:
       - HEARTBEAT_INTERVAL=30
       - DB_HOST=db
@@ -15,9 +14,9 @@ services:
       - DB_DATABASE=dvws
     depends_on:
       - db
-      
+
   db:
-    image: mysql
+    image: mysql:5.7  # Specify MySQL version to avoid default latest version issues
     container_name: DVWS_DB
     restart: always
     environment:
@@ -27,4 +26,7 @@ services:
       MYSQL_PASSWORD: DVWS
     volumes:
       - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
 

@@ -97,6 +97,7 @@ try
 		{
 			$reply_data .= "Failed to add a row to 'comments' table<br>";
 		}
+
 		$reply_data .= "<br><b>Setup finished</b>";
 		mysqli_close($con);
 	}
@@ -107,7 +108,8 @@ try
 }
 catch(Exception $e)
 {
-	$reply_data = "Database connection file not found";
+	//$reply_data = "Database connection file not found";
+	$reply_data = $e;
 }
 $page_data = <<<EOT
 <div class="page-header">

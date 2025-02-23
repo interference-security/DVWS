@@ -43,6 +43,8 @@
                     <!--<a href="file-upload.php" class="list-group-item">File Upload</a>-->
                     <a href="reflected-xss.php" class="list-group-item">Reflected XSS</a>
                     <a href="stored-xss.php" class="list-group-item">Stored XSS</a>
+                    <a href="ssti.php" class="list-group-item">SSTI</a>
+                    <a href="php-code-injection.php" class="list-group-item">PHP Code Injection</a>
                 </div>
                 <div class="list-group">
                     <a href="phpinfo.php" class="list-group-item">PHP Info</a>

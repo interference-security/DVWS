@@ -4,8 +4,8 @@ services:
     restart: always
     build: .
     ports:
-      - 8080:8080   # Websocket
-      - 8888:8888   # Frontend
+      - 8080:8080 # Websocket
+      - 8888:8888 # Frontend
     environment:
       - HEARTBEAT_INTERVAL=30
       - DB_HOST=db
@@ -16,7 +16,7 @@ services:
       - db
 
   db:
-    image: mysql:5.7  # Specify MySQL version to avoid default latest version issues
+    image: mysql
     container_name: DVWS_DB
     restart: always
     environment:

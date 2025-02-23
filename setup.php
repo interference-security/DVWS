@@ -108,8 +108,7 @@ try
 }
 catch(Exception $e)
 {
-	//$reply_data = "Database connection file not found";
-	$reply_data = $e;
+	$reply_data = "Database connection file not found";
 }
 $page_data = <<<EOT
 <div class="page-header">

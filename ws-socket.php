@@ -41,6 +41,8 @@ require 'class/AuthenticateUserBlind.php';
 require 'class/FileInclusion.php';
 require 'class/AuthenticateUserPreparedSession.php';
 require 'class/ChangePassword.php';
+require 'class/SSTI.php';
+require 'class/PHPCodeInjection.php';
 
 $collection = new RouteCollection;
 
@@ -54,6 +56,8 @@ $wsServer_AuthenticateUserBlind = new Ratchet\WebSocket\WsServer(new Authenticat
 $wsServer_FileInclusion = new Ratchet\WebSocket\WsServer(new FileInclusion());
 $wsServer_AuthenticateUserPreparedSession = new Ratchet\WebSocket\WsServer(new AuthenticateUserPreparedSession());
 $wsServer_ChangePassword = new Ratchet\WebSocket\WsServer(new ChangePassword());
+$wsServer_SSTI = new Ratchet\WebSocket\WsServer(new SSTI());
+$wsServer_PHPCodeInjection = new Ratchet\WebSocket\WsServer(new PHPCodeInjection());
 
 $collection->add('command-execution', new Route('/command-execution', array(
         '_controller' => $wsServer_CommandExecution,'allowedOrigins' => '*'
@@ -86,6 +90,12 @@ $collection->add('authenticate-user-prepared-session', new Route('/authenticate-
 $collection->add('change-password', new Route('/change-password', array(
         '_controller' => $wsServer_ChangePassword, 'allowedOrigins' => '*'
     )));
+$collection->add('ssti', new Route('/ssti', array(
+        '_controller' => $wsServer_SSTI, 'allowedOrigins' => '*'
+    )));
+$collection->add('php-code-injection', new Route('/php-code-injection', array(
+        '_controller' => $wsServer_PHPCodeInjection, 'allowedOrigins' => '*'
+    )));
 
 $router = new Ratchet\Http\Router(
                     new UrlMatcher($collection, 
@@ -110,5 +120,7 @@ $wsServer_AuthenticateUserBlind->enableKeepAlive($server->loop, $heartbeat_inter
 $wsServer_FileInclusion->enableKeepAlive($server->loop, $heartbeat_interval);
 $wsServer_AuthenticateUserPreparedSession->enableKeepAlive($server->loop, $heartbeat_interval);
 $wsServer_ChangePassword->enableKeepAlive($server->loop, $heartbeat_interval);
+$wsServer_SSTI->enableKeepAlive($server->loop, $heartbeat_interval);
+$wsServer_PHPCodeInjection->enableKeepAlive($server->loop, $heartbeat_interval);
 
 $server->run();

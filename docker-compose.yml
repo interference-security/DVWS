@@ -1,4 +1,3 @@
-version: "3"
 services:
   web:
     container_name: DVWS_WEB
@@ -15,7 +14,7 @@ services:
       - DB_DATABASE=dvws
     depends_on:
       - db
-      
+
   db:
     image: mysql
     container_name: DVWS_DB
@@ -27,4 +26,7 @@ services:
       MYSQL_PASSWORD: DVWS
     volumes:
       - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
 

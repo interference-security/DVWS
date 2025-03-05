@@ -97,6 +97,7 @@ try
 		{
 			$reply_data .= "Failed to add a row to 'comments' table<br>";
 		}
+
 		$reply_data .= "<br><b>Setup finished</b>";
 		mysqli_close($con);
 	}

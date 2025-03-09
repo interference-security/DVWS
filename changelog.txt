@@ -1,3 +1,5 @@
+2025-03-05
+- Added SSTI and PHP Code Injection (Thanks to https://github.com/arete06)
 2024-10-21
 - Added Docker support (Thanks to https://github.com/cz0r3k)
 - Fix CSRF subpage (Thanks to https://github.com/Aravindha1234u)
